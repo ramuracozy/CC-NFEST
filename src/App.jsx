@@ -13,14 +13,12 @@ function App() {
     <Router>
       <div className="flex flex-col min-h-screen bg-gray-900 text-white overflow-hidden">
         <Navbar user={user} setUser={setUser} />
-        <div className="flex flex-1 overflow-hidden">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/coming-soon" element={<ComingSoon />} />
-          </Routes>
-        </div>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/coming-soon" element={<ComingSoon />} />
+        </Routes>
       </div>
     </Router>
   );

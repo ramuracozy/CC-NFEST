@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faThumbsUp, faComment, faRetweet } from '@fortawesome/free-solid-svg-icons';
+import { faThumbsUp, faComment, faShare } from '@fortawesome/free-solid-svg-icons';
 
 function Feed() {
   return (
@@ -14,7 +14,7 @@ function Feed() {
         <div className="flex justify-around mt-2 text-gray-400">
           <FontAwesomeIcon icon={faThumbsUp} />
           <FontAwesomeIcon icon={faComment} />
-          <FontAwesomeIcon icon={faRetweet} />
+          <FontAwesomeIcon icon={faShare} />
         </div>
       </div>
     </div>

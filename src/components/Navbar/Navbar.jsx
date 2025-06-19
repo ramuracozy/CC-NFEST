@@ -14,7 +14,7 @@ function Navbar({ user, setUser }) {
   };
 
   return (
-    <nav className="bg-blue-900 p-4">
+    <nav className="bg-gradient-to-b from-purple-700 to-blue-500 bg-opacity-75 p-4">
       <div className="max-w-8xl mx-auto flex items-center justify-between px-8">
         <div className="text-2xl font-bold">NFEST</div>
         <div className="flex items-center">

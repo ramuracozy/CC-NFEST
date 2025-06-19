@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 function ComingSoon() {
   return (
-    <div className="bg-gradient-to-br from-blue-900 to-blue-600 flex justify-center items-center h-screen">
+    <div className="bg-gradient-to-b from-blue-900 to-purple-700 flex justify-center items-center min-h-screen">
       <div className="text-center text-white">
         <h1 className="text-4xl font-bold mb-5">Coming Soon!</h1>
         <div className="flex justify-center">
