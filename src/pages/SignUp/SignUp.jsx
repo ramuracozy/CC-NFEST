@@ -1,17 +1,35 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import axios from 'axios';
 
-function Signup() {
+function Signup({ user }) { // pastikan menerima prop user
   const [activeTab, setActiveTab] = useState('signup');
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle signup logic here
-    console.log('Signup submitted', { username, email, password });
-  };
+  useEffect(() => {
+    if (user) {
+      navigate('/'); // redirect ke halaman utama jika sudah login
+    }
+  }, [user, navigate]);
+
+
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    const res = await axios.post('http://localhost:3000/signup', {
+      username,
+      email,
+      password,
+    });
+    alert(res.data.message);
+    // Jika ingin redirect ke login, bisa tambahkan navigasi di sini
+  } catch (err) {
+    alert(err.response?.data?.message || 'Signup failed');
+  }
+};
 
   return (
     <div className="bg-gradient-to-br from-blue-900 to-blue-600 flex justify-center items-center h-screen">
@@ -26,14 +44,15 @@ function Signup() {
             >
               Sign Up
             </button>
-            <button
+            <Link
+              to="/login"
               className={`flex-1 p-2 font-bold text-sm text-blue-900 ${
                 activeTab === 'login' ? 'bg-blue-900 text-white rounded' : 'bg-transparent'
-              }`}
-              onClick={() => setActiveTab('login')}
+              } text-center`}
+              style={{ display: 'block' }}
             >
               Log In
-            </button>
+            </Link>
           </div>
           {activeTab === 'signup' && (
             <div>
@@ -46,7 +65,7 @@ function Signup() {
                     placeholder="Username"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
-                    className="p-2 w-full rounded border border-black"
+                    className="p-2 w-full rounded border border-black text-black"
                   />
                 </div>
                 <div>
@@ -56,7 +75,7 @@ function Signup() {
                     placeholder="Email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="p-2 w-full rounded border border-black"
+                    className="p-2 w-full rounded border border-black text-black"
                   />
                 </div>
                 <div>
@@ -66,7 +85,7 @@ function Signup() {
                     placeholder="Password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="p-2 w-full rounded border border-black"
+                    className="p-2 w-full rounded border border-black text-black text-black"
                   />
                 </div>
                 <button
