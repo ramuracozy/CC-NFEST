@@ -3,27 +3,27 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 function RightBar() {
   return (
-    <div className="w-64 p-4 m-10 bg-gray-800">
-      <input type="text" placeholder="Cari..." className="w-full p-2 mb-4 bg-gray-700 rounded" />
-      <div className="space-y-4">
-        <div className="flex items-center">
-          <FontAwesomeIcon icon={faUser} className="w-5 h-5 bg-gray-500 rounded-full mr-1 p-1" />
-          <div>
-            <p>Lelana Studio</p>
-            <p className="text-gray-200">@lelana.studio</p>
+    <aside className="hidden lg:flex flex-col w-72 rounded-xl bg-[#181f2a] text-white min-h-[calc(100vh-6rem)] py-8 px-4 rounded-r-lg shadow-lg mt-10 mr-8">
+      <input
+        type="text"
+        placeholder="Cari..."
+        className="w-full mb-6 px-4 py-2 rounded bg-[#232b3b] text-white focus:outline-none"
+      />
+      <div className="flex flex-col gap-4">
+        {[1, 2, 3].map((i) => (
+          <div key={i} className="flex items-center bg-[#232b3b] rounded-lg px-3 py-2">
+            <FontAwesomeIcon icon={faUser} className="w-8 h-8 bg-gray-500 rounded-full mr-3 p-2" />
+            <div className="flex-1">
+              <p className="font-semibold">NFEST Media</p>
+              <p className="text-gray-400 text-xs">@nfestmedia</p>
+            </div>
+            <button className="ml-auto bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-xs font-semibold">
+              {i === 1 ? 'Mengikuti' : 'Ikuti'}
+            </button>
           </div>
-          <button className="ml-auto bg-blue-600 p-0 rounded">Mengikuti</button>
-        </div>
-        <div className="flex items-center">
-          <FontAwesomeIcon icon={faUser} className="w-5 h-5 bg-gray-500 rounded-full mr-1 p-0" />
-          <div>
-            <p>Lelana Studio</p>
-            <p className="text-gray-400">@lelana.studio</p>
-          </div>
-          <button className="ml-auto bg-blue-600 p-0 rounded">Ikuti</button>
-        </div>
+        ))}
       </div>
-    </div>
+    </aside>
   );
 }
 

@@ -19,7 +19,7 @@ function Signup({ user }) { // pastikan menerima prop user
   const handleSubmit = async (e) => {
   e.preventDefault();
   try {
-    const res = await axios.post('http://localhost:3000/signup', {
+    const res = await axios.post('http://localhost:3000/api/signup', {
       username,
       email,
       password,

@@ -9,7 +9,8 @@ const app = express();
 
 app.use(cors()); // Tambahkan ini
 app.use(express.json());
-app.use(router);
+app.use('/api', router);
+app.use('/uploads', express.static('uploads'));
 
 if (!APP_PORT) {
   console.error('APP_PORT is not defined in .env');
